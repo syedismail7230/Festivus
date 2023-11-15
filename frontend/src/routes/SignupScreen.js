@@ -2,17 +2,21 @@ import React from 'react';
 import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const SignupScreen = () => {
+const SignupScreen = ({ navigation }) => {
+
+    const handleSignup = () => {
+        // For simplicity, let's assume the signup is successful
+        // and navigate to the Home screen
+        navigation.replace('Home');
+    };
+
+    const switchToLogin = () => {
+        navigation.navigate('Login');
+    };
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Sign Up</Text>
-            {/* Phone Number Input */}
-
-            <TextInput
-                style={styles.input}
-                placeholder="Phone Number"
-                keyboardType="phone-pad"
-            />
 
             {/* Student USN Input */}
             <TextInput
@@ -28,11 +32,18 @@ const SignupScreen = () => {
                 autoCapitalize="characters" // If you want USN to be in uppercase
             />
 
+            {/* Phone Number Input */}
+
+            <TextInput
+                style={styles.input}
+                placeholder="Phone Number"
+                placeholderTextColor="black"
+                keyboardType="phone-pad"
+            />
+
             {/* Signup Button */}
             <View style={styles.singupView}>
-                <TouchableOpacity style={styles.signupContainer} onPress={() => {
-                    // Handle Google login logic
-                }}>
+                <TouchableOpacity style={styles.signupContainer} onPress={handleSignup}>
                     <Text style={styles.signupLoginText}>Sign Up</Text>
                 </TouchableOpacity>
             </View>
@@ -53,8 +64,7 @@ const SignupScreen = () => {
 
             {/* Login Text */}
 
-            <TouchableOpacity>
-
+            <TouchableOpacity onPress={switchToLogin}>
                 <Text style={styles.loginText}>Already have an account? <Text style={styles.loginButton}>
                     Login
                 </Text></Text>
@@ -77,6 +87,7 @@ const styles = StyleSheet.create({
         fontSize: 28
     },
     input: {
+        color: "black",
         paddingVertical: 22,
         height: 40,
         borderColor: 'gray',

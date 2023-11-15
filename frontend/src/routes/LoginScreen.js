@@ -2,7 +2,17 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-nativ
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
+
+  const handleSignup = () => {
+    // TODO: either connect to backend or add the signpup function
+    navigation.replace('Home');
+  };
+
+  const switchToSignup = () => {
+    navigation.navigate('Signup')
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome Back!</Text>
@@ -13,12 +23,14 @@ const LoginScreen = () => {
         style={styles.input}
         placeholder="Enter USN"
         keyboardType="phone-pad"
+        placeholderTextColor="gray"
       />
 
       {/* Student USN Input */}
       <TextInput
-        style={styles.input}
         placeholder="Enter Phone Number"
+        placeholderTextColor="gray"
+        style={styles.input}
         autoCapitalize="characters" // If you want USN to be in uppercase
       />
 
@@ -34,9 +46,7 @@ const LoginScreen = () => {
       {/* Signup Button */}
 
       <View style={styles.singupView}>
-        <TouchableOpacity style={styles.signupContainer} onPress={() => {
-          // Handle Google login logic
-        }}>
+        <TouchableOpacity style={styles.signupContainer} onPress={handleSignup}>
           <Text style={styles.signupLoginText}>Sign Up</Text>
         </TouchableOpacity>
       </View>
@@ -57,7 +67,7 @@ const LoginScreen = () => {
 
       {/* Login Text */}
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={switchToSignup}>
 
         <Text style={styles.loginText}>Don't have an account <Text style={styles.loginButton}>
           Signup
@@ -88,6 +98,7 @@ const styles = StyleSheet.create({
     paddingBottom: 12,
   },
   input: {
+    color: 'black', // Set the default text color
     paddingVertical: 22,
     height: 40,
     borderColor: 'gray',

@@ -1,23 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import LoginScreen from './src/routes/LoginScreen';
-import SignupScreen from './src/routes/SignupScreen';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import AppNavigator from './src/navigation/AppNavigator';
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      {/* <LoginScreen/> */}
-      <SignupScreen/>
-    </View>
-
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
