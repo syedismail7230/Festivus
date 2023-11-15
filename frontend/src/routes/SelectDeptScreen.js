@@ -15,23 +15,23 @@ const SelectDeptScreen = () => {
 
       <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}>
         <View style={styles.box}>
-          <Image style={styles.img_dpt} source={require('./img/deptSel_ai.png')} />
+          <Image style={styles.img_dpt} source={require('../../assets/images/deptSel_ai.png')} />
           <Text style={styles.box_text} >AI & ML</Text>
         </View>
         <View style={styles.box}>
-          <Image style={styles.img_dpt} source={require('./img/deptSel_cs.png')} />
+          <Image style={styles.img_dpt} source={require('../../assets/images/deptSel_cs.png')} />
           <Text style={styles.box_text} >CSE</Text>
         </View>
         <View style={styles.box}>
-          <Image style={styles.img_dpt} source={require('./img/deptSel_ele.png')} />
+          <Image style={styles.img_dpt} source={require('../../assets/images/deptSel_ele.png')} />
           <Text style={styles.box_text} >ELE</Text>
         </View>
         <View style={styles.box}>
-          <Image style={styles.img_dpt} source={require('./img/deptSel_ise.png')} />
+          <Image style={styles.img_dpt} source={require('../../assets/images/deptSel_ise.png')} />
           <Text style={styles.box_text} >ISE</Text>
         </View>
         <View style={styles.box}>
-          <Image style={styles.img_dpt} source={require('./img/deptSel_mec.png')} />
+          <Image style={styles.img_dpt} source={require('../../assets/images/img/deptSel_mec.png')} />
           <Text style={styles.box_text} >ME</Text>
         </View>
       </View>
