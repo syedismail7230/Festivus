@@ -20,7 +20,7 @@ const AppNavigator = () => {
             <Stack.Screen name="Signup" component={SignupScreen} />
             <Stack.Screen name="SelectDept" component={SelectDeptScreen} />
             {/* <Stack.Screen name="Home" component={HomeScreen} /> */}
-            <Stack.Screen name="Home" component={BottomTabNavigator} />
+            <Stack.Screen name="TabNavigator" component={BottomTabNavigator} />
 
         </Stack.Navigator>
     );
