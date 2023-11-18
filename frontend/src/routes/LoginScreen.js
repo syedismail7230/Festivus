@@ -6,7 +6,7 @@ const LoginScreen = ({ navigation }) => {
 
   const handleSignup = () => {
     // TODO: either connect to backend or add the signpup function
-    navigation.replace('Home');
+    navigation.replace('SelectDept');
   };
 
   const switchToSignup = () => {
