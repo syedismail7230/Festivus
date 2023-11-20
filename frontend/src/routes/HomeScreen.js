@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TextInput, StyleSheet, FlatList, Touchable, TouchableOpacity, SafeAreaView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
     // Dummy data for two rows of cards
     const data = [
         { id: '1', title: 'Card 1' },
@@ -10,6 +10,12 @@ const HomeScreen = () => {
         { id: '3', title: 'Card 3' },
         { id: '4', title: 'Card 4' },
     ];
+
+    const handleCardPress = (item) => {
+        // Navigate to the EventDetailScreen with the selected item data
+        navigation.navigate("EventDetails")
+    };
+
 
     return (
         <SafeAreaView style={styles.safeArea}>
@@ -32,9 +38,7 @@ const HomeScreen = () => {
                     data={data}
                     keyExtractor={(item) => item.id}
                     renderItem={({ item }) => (
-                        <TouchableOpacity onPress={() => {
-                            console.log(item.data)
-                        }}>
+                        <TouchableOpacity onPress={() => handleCardPress(item)}>
                             <View style={styles.card}>
                                 <Text>{item.title}</Text>
                             </View>
@@ -54,7 +58,7 @@ const HomeScreen = () => {
                     keyExtractor={(item) => item.id}
                     renderItem={({ item }) => (
                         <TouchableOpacity onPress={() => {
-                            console.log(item.data)
+                            console.log(item.title)
                         }}>
                             <View style={styles.card}>
                                 <Text>{item.title}</Text>

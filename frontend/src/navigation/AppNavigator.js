@@ -8,6 +8,7 @@ import IntroScreen from '../routes/IntroScreen';
 import SplashScreen from '../routes/SplashScreen';
 import SelectDeptScreen from '../routes/SelectDeptScreen';
 import BottomTabNavigator from '../routes/BottomTabNavigator';
+import EventDetailScreen from '../routes/EventDetailScreen';
 
 const Stack = createStackNavigator();
 
@@ -19,8 +20,9 @@ const AppNavigator = () => {
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Signup" component={SignupScreen} />
             <Stack.Screen name="SelectDept" component={SelectDeptScreen} />
-            {/* <Stack.Screen name="Home" component={HomeScreen} /> */}
+            <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="TabNavigator" component={BottomTabNavigator} />
+            <Stack.Screen name="EventDetails" component={EventDetailScreen} />
 
         </Stack.Navigator>
     );
