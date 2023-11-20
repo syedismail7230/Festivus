@@ -1,0 +1,62 @@
+import React from 'react'
+import { View, Text, StyleSheet,Image, TextInput, TouchableOpacity,Animated } from 'react-native'
+import NavBar from '../../assets/components/NavBar'
+import Btn1 from '../../assets/components/Btn1'
+import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import Upcoming from './Upcoming'; // Import your tab screens
+import PastEvents from './PastEvents';
+
+const Tab = createMaterialTopTabNavigator();
+const Stack = createStackNavigator();
+
+const TabNavigator = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="UPCOMING" component={Upcoming} />
+      <Tab.Screen name="PAST EVENTS" component={PastEvents} />
+    </Tab.Navigator>
+  );
+};
+
+
+
+
+function ActivityScreen() {
+  return (
+    <View style={styles.container}>
+        {/* Nav bar */}
+        <NavBar NavTitle="Events" />
+
+        <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Tabs"
+          component={TabNavigator}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+
+    <Btn1 style={styles.btn} btn_txt="Explore Events" img_url={require("../../assets/images/right_arrow.png")}/>
+
+    </View>
+  )
+}
+
+export default ActivityScreen
+
+const styles = StyleSheet.create({
+    container: {
+        width: "100%",
+        borderWidth: 2,
+        flex: 1,
+        justifyContent: "center",
+        paddingHorizontal: 20,
+        paddingVertical:20
+      },
+      
+
+})
