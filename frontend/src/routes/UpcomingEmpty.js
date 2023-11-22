@@ -7,23 +7,7 @@ import Eventbox from '../../assets/components/Eventbox';
 const Screen1 = () => {
   return (
     <View style={styles.container}>
-       
-      <Eventbox 
-      title="Dance party at the top of the town - 2022"
-      location="AIML Seminar Hall"
-      />
-
-      <Eventbox 
-            title="Dance party at the top of the town - 2022"
-            location="AIML Seminar Hall"
-            />
-
-      <Eventbox 
-            title="Dance party at the top of the town - 2022"
-            location="AIML Seminar Hall"
-            />
-
-
+     <Image source={require("../../assets/images/no_events.png")}/>
     </View>
   );
 };

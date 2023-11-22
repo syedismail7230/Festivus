@@ -1,12 +1,29 @@
 // Screen1.js
 
 import React from 'react';
-import { View, Text,Image, StyleSheet } from 'react-native';
+import { View, Text,Image, StyleSheet,TouchableOpacity } from 'react-native';
+import Eventbox from '../../assets/components/Eventbox';
 
 const Screen1 = () => {
   return (
     <View style={styles.container}>
-       <Image source={require("../../assets/images/no_events.png")}/>
+       
+      <Eventbox 
+      title="Dance party at the top of the town - 2022"
+      location="AIML Seminar Hall"
+      />
+
+      <Eventbox 
+            title="Dance party at the top of the town - 2022"
+            location="AIML Seminar Hall"
+            />
+
+      <Eventbox 
+            title="Dance party at the top of the town - 2022"
+            location="AIML Seminar Hall"
+            />
+
+
     </View>
   );
 };
@@ -14,9 +31,12 @@ const Screen1 = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    paddingVertical:20,
+    // justifyContent: 'center',
     alignItems: 'center',
   },
+  
+
 });
 
 export default Screen1;
