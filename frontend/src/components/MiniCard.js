@@ -4,27 +4,27 @@ import { Ionicons } from '@expo/vector-icons';
 
 const MiniCard = ({ imageSource, title, iconText, buttonText, onPress }) => {
     return (
-        <View style={styles.cardContainer}>
+        <TouchableOpacity style={styles.cardContainer} onPress={onPress}>
             {/* Left Column: Square Image */}
-            <Image source={imageSource} style={styles.image} />
+            < Image source={imageSource} style={styles.image} />
 
             {/* Right Column */}
-            <View style={styles.rightColumn}>
+            < View style={styles.rightColumn} >
                 {/* Title */}
-                <Text style={styles.title}>{title}</Text>
+                < Text style={styles.title} > {title}</Text >
 
                 {/* Icon with Text */}
-                <View style={styles.iconContainer}>
+                < View style={styles.iconContainer} >
                     <Ionicons name="location-outline" size={24} color="black" />
                     <Text style={styles.iconText}>{iconText}</Text>
-                </View>
+                </View >
 
                 {/* Register Button */}
                 {/* <TouchableOpacity style={styles.button} onPress={onPress}>
                     <Text style={styles.buttonText}>{buttonText}</Text>
                 </TouchableOpacity> */}
-            </View>
-        </View>
+            </View >
+        </TouchableOpacity >
     );
 };
 

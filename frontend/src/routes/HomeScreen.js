@@ -4,14 +4,15 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import FormModal from '../components/FormModal';
 import MiniCard from '../components/MiniCard';
 import DetailedCard from '../components/DetailedCard';
+import Eventbox from '../components/Eventbox';
 
 const HomeScreen = ({ navigation }) => {
     // Dummy data for two rows of cards
     const data = [
-        { id: '1', title: 'Debate Competetion', location: 'CSE Seminar Hall' },
+        { id: '1', title: "Gamer's Gala", location: 'CSE Seminar Hall', },
         { id: '2', title: 'Touch Typing', location: 'ISE Seminar Hall' },
-        { id: '3', title: 'Drawing Competetion', location: 'CSE Seminar Hall' },
-        { id: '4', title: 'Tech Quizz', location: 'CSE Seminar Hall' },
+        { id: '3', title: 'Drawing Competetion', location: 'D Block Seminar Hall' },
+        { id: '4', title: 'Tech Quizz', location: 'F303' },
         { id: '5', title: 'Hackathon', location: 'CSE Seminar Hall' },
     ];
 
@@ -56,18 +57,20 @@ const HomeScreen = ({ navigation }) => {
                         data={data}
                         keyExtractor={(item) => item.id}
                         renderItem={({ item }) => (
-                            <TouchableOpacity style={{ paddingRight: 12, }} onPress={() => handleCardPress(item)}>
-                                {/* <View style={styles.card}>
-                                <Text>{item.title}</Text>
-                            </View> */}
-                                <MiniCard
-                                    imageSource={require('../../assets/images/sample-event-banner.jpg')}
-                                    title={item.title}
-                                    iconText={item.location}
-                                    buttonText="Register"
-                                    onPress={() => console.log('Register button pressed')}
-                                />
-                            </TouchableOpacity>
+                            <MiniCard
+                                imageSource={require('../../assets/images/sample-event-banner.jpg')}
+                                title={item.title}
+                                iconText={item.location}
+                                buttonText="Register"
+                                onPress={() => handleCardPress(item)}
+                            />
+
+                            // <TouchableOpacity style={{ paddingRight: 12, }} onPress={() => handleCardPress(item)}>
+                            //     {/* <View style={styles.card}>
+                            //     <Text>{item.title}</Text>
+                            // </View> */}
+
+                            // </TouchableOpacity>
                         )}
                         horizontal={true} // Set horizontal scroll direction
                         showsHorizontalScrollIndicator={false} // Hide horizontal scrollbar
@@ -87,9 +90,9 @@ const HomeScreen = ({ navigation }) => {
                             console.log(item.title)
                         }}>
                             <DetailedCard
-                                // imageSource="../../assets/images/sample-event-banner.jpg"
-                                department="AI & ML"
-                                title="Hackathon Hackathon Hackathon"
+                                imageSource={require('../../assets/images/festivus-intro3.jpg')}
+                                department="AI&ML"
+                                title={item.title}
                                 dateTime="19th August, 09:00"
                                 avatarSource="../../assets/images/right_arrow.png"
                                 price="₨ 800"
@@ -98,9 +101,9 @@ const HomeScreen = ({ navigation }) => {
                         </TouchableOpacity>
 
                     )}
-                    horizontal={true} // Set horizontal scroll direction
-                    showsHorizontalScrollIndicator={false} // Hide horizontal scrollbar
-                    contentContainerStyle={{ height: 'auto' }} // Adjust height based on content
+                    horizontal={false} // Set horizontal scroll direction
+                    showsHorizontalScrollIndicator={false}
+                // contentContainerStyle={{ height: 'auto' }}
                 />
                 <Modal
                     animationType="slide"

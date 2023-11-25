@@ -1,11 +1,11 @@
-// UpcommingEventScreen.js
+// RegisteredEventsScreen.js
 
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import Eventbox from '../components/Eventbox';
 
 
-const UpcommingEventScreen = () => {
+const RegisteredEventsScreen = () => {
   return (
     <View style={styles.container}>
 
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingVertical: 20,
+    paddingHorizontal: 12,
     // justifyContent: 'center',
     alignItems: 'center',
   },
@@ -41,4 +42,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default UpcommingEventScreen;
+export default RegisteredEventsScreen;

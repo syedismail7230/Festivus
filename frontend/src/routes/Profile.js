@@ -1,5 +1,6 @@
 import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity, SafeAreaView, FlatList, ScrollView } from 'react-native'
 import React from 'react'
+import { Feather } from '@expo/vector-icons';
 
 const Profile = () => {
 
@@ -17,13 +18,8 @@ const Profile = () => {
   return (
     <View style={styles.container}>
 
-      {/* <View style={styles.Nav}>
-        <Image style={styles.img1} source={require('../../assets/images/deptSel_back.png')} />
-        <Text style={styles.title}>Choose your department</Text>
-      </View> */}
-
       {Details_list.map((user, i) => (
-        <View>
+        <View key={i}>
           {/*display pic*/}
           <Image style={styles.dp} source={user.dp}></Image>
 
@@ -58,10 +54,11 @@ const Profile = () => {
 
 
           {/*signout Button*/}
-          <View style={styles.signout_div}>
+          <TouchableOpacity style={styles.signout_div}>
             <Text style={styles.signout_txt}>Sign Out</Text>
-            <Image source={require('../../assets/images/signout_btn.png')} style={styles.signout_img}></Image>
-          </View>
+            {/* <Image source={require('../../assets/images/signout_btn.png')}></Image> */}
+            <Feather name="log-out" size={24} color="white" style={styles.signout_img} />
+          </TouchableOpacity>
 
 
         </View>

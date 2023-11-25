@@ -1,20 +1,21 @@
 import React from 'react';
 import { View, Text, ImageBackground, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons'; // Assuming you are using Expo, otherwise use a different icon library
+import { Feather } from '@expo/vector-icons';
 
 const DetailedCard = ({ imageSource, department, title, dateTime, avatarSource, price, onPress }) => {
     return (
         <TouchableOpacity style={styles.cardContainer} onPress={onPress}>
             {/* Full Width Image with Overlay */}
-            <ImageBackground source="../../assets/images/sample-event-banner.jpg" style={styles.imageBackground} resizeMode="cover">
+            <ImageBackground source={imageSource} style={styles.imageBackground} resizeMode="cover">
                 <View style={styles.overlay}>
                     {/* Heart Icon */}
-                    <MaterialCommunityIcons name="heart" size={24} color="white" style={styles.heartIcon} />
+                    {/* <MaterialCommunityIcons name="heart" size={24} color="white" style={styles.heartIcon} /> */}
+                    <Feather style={styles.heartIcon} name="heart" size={24} color="white" />
                 </View>
             </ImageBackground>
 
             {/* Department Text */}
-            <Text style={styles.department}>{department}</Text>
+            <Text style={styles.department}>Organized by : {department}</Text>
 
             {/* Title and Date Time */}
             <View style={styles.textContainer}>
@@ -35,6 +36,7 @@ const DetailedCard = ({ imageSource, department, title, dateTime, avatarSource, 
 
 const styles = StyleSheet.create({
     cardContainer: {
+        minWidth: "60%",
         borderRadius: 12,
         overflow: 'hidden',
         margin: 10,
@@ -55,12 +57,17 @@ const styles = StyleSheet.create({
         marginRight: 5,
     },
     department: {
+        // color: "red",
         position: 'absolute',
-        bottom: 5,
-        left: 5,
-        color: 'white',
+        top: 10,
+        left: 10,
+        color: 'grey',
         fontWeight: 'bold',
         fontSize: 14,
+        padding: 4,
+        borderRadius: 4,
+        // borderWidth: 2, borderColor: "red",
+        backgroundColor: "white"
     },
     textContainer: {
         padding: 10,
@@ -68,7 +75,7 @@ const styles = StyleSheet.create({
     title: {
         fontWeight: 'bold',
         fontSize: 18,
-        color: 'white', // Adjust text color for better visibility on the image
+        color: 'black',
         marginBottom: 5,
     },
     dateTime: {
@@ -77,11 +84,12 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     avatar: {
+        borderColor: "red", borderWidth: 2,
         width: 40,
         height: 40,
         borderRadius: 20,
         position: 'absolute',
-        bottom: 70,
+        bottom: 80,
         left: 10,
     },
     button: {
@@ -89,7 +97,7 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 8,
         position: 'absolute',
-        bottom: 10,
+        bottom: 15,
         right: 10,
     },
     buttonText: {
