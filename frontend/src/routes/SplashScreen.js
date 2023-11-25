@@ -1,22 +1,29 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+// SplashScreen.js
+import React, { useEffect, useRef } from 'react';
+import { View, Text, StyleSheet, Animated } from 'react-native';
 
 const SplashScreen = ({ navigation }) => {
-    useEffect(() => {
-        // Simulate an asynchronous task (e.g., fetching user data)
-        const fetchData = async () => {
-            // For example, wait for 2 seconds
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            // Navigate to the Intro screen
-            navigation.replace('Intro');
-        };
+    const fadeAnim = useRef(new Animated.Value(0)).current;
 
-        fetchData();
-    }, [navigation]);
+    useEffect(() => {
+        Animated.timing(
+            fadeAnim,
+            {
+                toValue: 1,
+                duration: 2000, // Adjust the duration as needed
+                useNativeDriver: true,
+            }
+        ).start(() => {
+            // Navigate to the next screen after the animation
+            navigation.replace('Intro'); // Replace with your next screen
+        });
+    }, [fadeAnim, navigation]);
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Splash Screen</Text>
+            <Animated.Text style={[styles.text, { opacity: fadeAnim }]}>
+                Festivus
+            </Animated.Text>
         </View>
     );
 };
@@ -26,9 +33,12 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#ffffff', // Set the background color if needed
     },
     text: {
-        fontSize: 20,
+        letterSpacing: 12,
+        fontSize: 28,
+        textTransform: "uppercase",
         fontWeight: 'bold',
     },
 });

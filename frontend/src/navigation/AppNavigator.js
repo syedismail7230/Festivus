@@ -6,17 +6,24 @@ import SignupScreen from '../routes/SignupScreen';
 import HomeScreen from '../routes/HomeScreen';
 import IntroScreen from '../routes/IntroScreen';
 import SplashScreen from '../routes/SplashScreen';
+import SelectDeptScreen from '../routes/SelectDeptScreen';
+import BottomTabNavigator from '../routes/BottomTabNavigator';
+import EventDetailScreen from '../routes/EventDetailScreen';
 
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName="Splash" headerMode="none" headerShown="false">
+        <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Splash" component={SplashScreen} />
             <Stack.Screen name="Intro" component={IntroScreen} />
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Signup" component={SignupScreen} />
+            <Stack.Screen name="SelectDept" component={SelectDeptScreen} />
             <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="TabNavigator" component={BottomTabNavigator} />
+            <Stack.Screen name="EventDetails" component={EventDetailScreen} />
+
         </Stack.Navigator>
     );
 };

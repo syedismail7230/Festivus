@@ -1,60 +1,60 @@
-import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity, Touchable, ScrollView } from 'react-native'
 import React from 'react'
 
-const SelectDeptScreen = () => {
+const departments = [
+  { name: 'AI & ML', image: require('../../assets/images/deptSel_ai.png') },
+  { name: 'CSE', image: require('../../assets/images/deptSel_cs.png') },
+  { name: 'ELE', image: require('../../assets/images/deptSel_ele.png') },
+  { name: 'ISE', image: require('../../assets/images/deptSel_ele.png') },
+  { name: 'ME', image: require('../../assets/images/deptSel_mec.png') },
+  { name: 'Other', image: require('../../assets/images/deptSel_mec.png') },
+];
+
+
+const SelectDeptScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.head}>
-        <Image style={styles.img1} source={require('./img/deptSel_back.png')} />
-        <Image styles={styles.img2} source={require('./img/deptSel_dashes.png')} />
         <Text style={styles.title}>Choose your department</Text>
       </View>
 
-
-      {/* Departments- each with image and text */}
-
-      <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}>
-        <View style={styles.box}>
-          <Image style={styles.img_dpt} source={require('../../assets/images/deptSel_ai.png')} />
-          <Text style={styles.box_text} >AI & ML</Text>
-        </View>
-        <View style={styles.box}>
-          <Image style={styles.img_dpt} source={require('../../assets/images/deptSel_cs.png')} />
-          <Text style={styles.box_text} >CSE</Text>
-        </View>
-        <View style={styles.box}>
-          <Image style={styles.img_dpt} source={require('../../assets/images/deptSel_ele.png')} />
-          <Text style={styles.box_text} >ELE</Text>
-        </View>
-        <View style={styles.box}>
-          <Image style={styles.img_dpt} source={require('../../assets/images/deptSel_ise.png')} />
-          <Text style={styles.box_text} >ISE</Text>
-        </View>
-        <View style={styles.box}>
-          <Image style={styles.img_dpt} source={require('../../assets/images/img/deptSel_mec.png')} />
-          <Text style={styles.box_text} >ME</Text>
-        </View>
-      </View>
+      {/* Departments - each with image and text */}
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        {departments.map((dept, index) => (
+          <TouchableOpacity
+            key={index}
+            style={styles.box}
+            onPress={() => console.log(`Selected ${dept.name}`)} // Add your logic here
+          >
+            <Image style={styles.img_dpt} source={dept.image} />
+            <Text style={styles.box_text}>{dept.name}</Text>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
 
       {/* Finish button */}
-      <View style={styles.finish_div}>
+      <TouchableOpacity
+        style={styles.finish_div}
+        onPress={() =>
+          // console.log("Finish Pressed.")
+          navigation.replace("Home")
+        }
+      >
         <Text style={styles.finish_txt}>Finish</Text>
-      </View>
+      </TouchableOpacity>
+    </View >
+  );
+};
 
-    </View>
-  )
-}
-
-export default SelectDeptScreen
+export default SelectDeptScreen;
 
 const styles = StyleSheet.create({
   container: {
-
     paddingVertical: 30,
-    width: "100%",
+    width: '100%',
     borderWidth: 2,
     flex: 1,
-    justifyContent: "flex-start",
+    justifyContent: 'flex-start',
     paddingHorizontal: 20,
   },
 
@@ -64,24 +64,12 @@ const styles = StyleSheet.create({
     fontSize: 28,
   },
 
-  img1: {
-    marginVertical: 20,
-
-  },
-
-  img2: {
-    marginLeft: 10,
-
-  },
-
-  img_dpt:
-  {
+  img_dpt: {
     width: 20,
     height: 20,
   },
 
-  box:
-  {
+  box: {
     flexDirection: 'row',
     fontWeight: 'bold',
     alignItems: 'center',
@@ -99,6 +87,11 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
     textAlign: 'center',
   },
+  scrollViewContent: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 10,
+  },
   finish_div: {
     justifyContent: 'center',
     alignSelf: 'center',
@@ -107,12 +100,11 @@ const styles = StyleSheet.create({
     width: '90%',
     margin: 5,
     padding: 5,
-    borderRadius: 15
+    borderRadius: 15,
   },
   finish_txt: {
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#fff'
-  }
-
-})
+    color: '#fff',
+  },
+});
