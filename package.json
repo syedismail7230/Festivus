@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "react-native-imaged-carousel-card": "^0.1.1",
     "react-native-snap-carousel": "^3.9.1",
     "react-native-vector-icons": "^10.0.2"
   }

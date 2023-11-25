@@ -1,10 +1,10 @@
-// Screen1.js
+// PastEventScreen.js
 
 import React from 'react';
 import { View, Text,Image, StyleSheet,TouchableOpacity } from 'react-native';
 import Eventbox from '../../assets/components/Eventbox';
 
-const Screen1 = () => {
+const PastEventScreen = () => {
   return (
     <View style={styles.container}>
        
@@ -39,4 +39,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Screen1;
+export default PastEventScreen;

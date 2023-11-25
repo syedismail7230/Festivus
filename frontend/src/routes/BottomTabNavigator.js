@@ -100,6 +100,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import HomeScreen from '../routes/HomeScreen';
 import RecentsScreen from '../routes/RecentsScreen'; // Create RecentsScreen component
 import ProfileScreen from '../routes/ProfileScreen'; // Create ProfileScreen component
+import Profile from './Profile';
+import ActivityScreen from './ActivityScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -118,7 +120,7 @@ const BottomTabNavigator = () => {
             />
             <Tab.Screen
                 name="Activity"
-                component={RecentsScreen}
+                component={ActivityScreen}
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <Icon name="ios-notifications" color={color} size={size} />
@@ -127,7 +129,7 @@ const BottomTabNavigator = () => {
             />
             <Tab.Screen
                 name="Profile"
-                component={ProfileScreen}
+                component={Profile}
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <Icon name="ios-person" color={color} size={size} />
