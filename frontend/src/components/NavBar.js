@@ -19,8 +19,10 @@ const styles = StyleSheet.create({
     
     Nav:{
       flexDirection:'row',
-      marginVertical:'10%',
+      paddingTop:'5%',
       alignItems: 'center',
+      
+      
             
     },
     Nav_title: {

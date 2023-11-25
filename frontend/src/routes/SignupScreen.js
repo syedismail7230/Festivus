@@ -7,7 +7,8 @@ const SignupScreen = ({ navigation }) => {
     const handleSignup = () => {
         // For simplicity, let's assume the signup is successful
         // and navigate to the Home screen
-        navigation.replace('TabNavigator');
+        navigation.replace('SelectDept');
+        // navigation.replace('TabNavigator');
     };
 
     const switchToLogin = () => {

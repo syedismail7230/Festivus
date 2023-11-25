@@ -9,6 +9,8 @@ import SplashScreen from '../routes/SplashScreen';
 import SelectDeptScreen from '../routes/SelectDeptScreen';
 import BottomTabNavigator from '../routes/BottomTabNavigator';
 import EventDetailScreen from '../routes/EventDetailScreen';
+import Profile from '../routes/Profile';
+import ActivityScreen from '../routes/ActivityScreen';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +25,8 @@ const AppNavigator = () => {
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="TabNavigator" component={BottomTabNavigator} />
             <Stack.Screen name="EventDetails" component={EventDetailScreen} />
+            <Stack.Screen name="Profile" component={Profile} />
+            <Stack.Screen name="Activity" component={ActivityScreen} />
 
         </Stack.Navigator>
     );

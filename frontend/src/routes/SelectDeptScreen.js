@@ -37,7 +37,7 @@ const SelectDeptScreen = ({ navigation }) => {
         style={styles.finish_div}
         onPress={() =>
           // console.log("Finish Pressed.")
-          navigation.replace("Home")
+          navigation.replace("TabNavigator")
         }
       >
         <Text style={styles.finish_txt}>Finish</Text>

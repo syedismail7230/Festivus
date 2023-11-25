@@ -12,7 +12,7 @@ const EventDetailScreen = ({ route }) => {
         place: 'Event Venue, City',
         status: 'Registered',
         aboutEvent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...',
-        rules: '1. Follow the event guidelines.\n2. Be respectful to others.',
+        rules: '1. Follow the event guidelines.\n2. Be respectful to others.\n3.Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n4.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.',
     };
 
     return (
