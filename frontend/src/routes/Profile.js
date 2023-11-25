@@ -16,10 +16,10 @@ const Profile = () => {
   return (
     <View style={styles.container}>
 
-      <View style={styles.Nav}>
+      {/* <View style={styles.Nav}>
         <Image style={styles.img1} source={require('../../assets/images/deptSel_back.png')} />
         <Text style={styles.title}>Choose your department</Text>
-      </View>
+      </View> */}
 
       {Details_list.map((user, i) => (
         <View>
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     paddingTop: '10%',
     paddingBottom: 5,
     width: "100%",
-    borderWidth: 2,
+    // borderWidth: 2,
     flex: 1,
     justifyContent: "flex-start",
     paddingHorizontal: 20,

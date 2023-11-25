@@ -95,8 +95,7 @@
 // BottomTabNavigator.js
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/Ionicons';
-
+import { Feather } from '@expo/vector-icons';
 import HomeScreen from '../routes/HomeScreen';
 import RecentsScreen from '../routes/RecentsScreen'; // Create RecentsScreen component
 import ProfileScreen from '../routes/ProfileScreen'; // Create ProfileScreen component
@@ -109,12 +108,11 @@ const BottomTabNavigator = () => {
     return (
         <Tab.Navigator screenOptions={{ headerShown: false }}>
             <Tab.Screen
-
                 name="Home"
                 component={HomeScreen}
                 options={{
                     tabBarIcon: ({ color, size }) => (
-                        <Icon name="ios-home" color={color} size={size} />
+                        <Feather name="home" size={24} color="black" />
                     ),
                 }}
             />
@@ -122,8 +120,9 @@ const BottomTabNavigator = () => {
                 name="Activity"
                 component={ActivityScreen}
                 options={{
+                    headerShown: true,
                     tabBarIcon: ({ color, size }) => (
-                        <Icon name="ios-notifications" color={color} size={size} />
+                        <Feather name="bell" size={24} color="black" />
                     ),
                 }}
             />
@@ -131,8 +130,9 @@ const BottomTabNavigator = () => {
                 name="Profile"
                 component={Profile}
                 options={{
+                    headerShown: true,
                     tabBarIcon: ({ color, size }) => (
-                        <Icon name="ios-person" color={color} size={size} />
+                        <Feather name="users" size={24} color="black" />
                     ),
                 }}
             />

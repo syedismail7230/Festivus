@@ -38,15 +38,17 @@ const styles = StyleSheet.create({
         margin: 10,
     },
     image: {
-        width: 100, // Adjust the width as needed
-        height: 100, // Adjust the height as needed
+        width: 120, // Adjust the width as needed
+        height: 120, // Adjust the height as needed
+        borderRadius: 12,
     },
     rightColumn: {
+        justifyContent: 'space-evenly',
         flex: 1,
         padding: 10,
     },
     title: {
-
+        marginLeft: 8,
         fontWeight: '900',
         fontSize: 16,
         marginBottom: 8,
@@ -61,6 +63,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     button: {
+        width: "60%",
         backgroundColor: '#3498db',
         padding: 10,
         borderRadius: 5,

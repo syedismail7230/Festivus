@@ -3,14 +3,16 @@ import { View, Text, TextInput, StyleSheet, FlatList, Touchable, TouchableOpacit
 import Icon from 'react-native-vector-icons/Ionicons';
 import FormModal from '../components/FormModal';
 import MiniCard from '../components/MiniCard';
+import DetailedCard from '../components/DetailedCard';
 
 const HomeScreen = ({ navigation }) => {
     // Dummy data for two rows of cards
     const data = [
-        { id: '1', title: 'Card 1' },
-        { id: '2', title: 'Card 2' },
-        { id: '3', title: 'Card 3' },
-        { id: '4', title: 'Card 4' },
+        { id: '1', title: 'Debate Competetion', location: 'CSE Seminar Hall' },
+        { id: '2', title: 'Touch Typing', location: 'ISE Seminar Hall' },
+        { id: '3', title: 'Drawing Competetion', location: 'CSE Seminar Hall' },
+        { id: '4', title: 'Tech Quizz', location: 'CSE Seminar Hall' },
+        { id: '5', title: 'Hackathon', location: 'CSE Seminar Hall' },
     ];
 
     const handleCardPress = (item) => {
@@ -46,39 +48,32 @@ const HomeScreen = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
 
-
-
-
-
-                {/* Headers */}
-                <Text style={styles.header}>Ongoing Events</Text>
-
-                {/* Two Rows of Cards */}
-                <FlatList
-                    data={data}
-                    keyExtractor={(item) => item.id}
-                    renderItem={({ item }) => (
-                        <TouchableOpacity style={{ paddingRight: 12, }} onPress={() => handleCardPress(item)}>
-                            {/* <View style={styles.card}>
+                {/* ONGOING EVENTS */}
+                <View style={styles.ongoingEvents}>
+                    <Text style={styles.header}>Ongoing Events</Text>
+                    {/* Two Rows of Cards */}
+                    <FlatList
+                        data={data}
+                        keyExtractor={(item) => item.id}
+                        renderItem={({ item }) => (
+                            <TouchableOpacity style={{ paddingRight: 12, }} onPress={() => handleCardPress(item)}>
+                                {/* <View style={styles.card}>
                                 <Text>{item.title}</Text>
                             </View> */}
-                            <MiniCard
-                                imageSource={require('../../assets/images/sample-event-banner.jpg')}
-                                title={item.title}
-                                iconText="CSE Seminar Hall"
-                                buttonText="Register"
-                                onPress={() => console.log('Register button pressed')}
-                            />
-
-
-                        </TouchableOpacity>
-
-
-                    )}
-                    horizontal={true} // Set horizontal scroll direction
-                    showsHorizontalScrollIndicator={false} // Hide horizontal scrollbar
-                    contentContainerStyle={{ height: 'auto' }} // Adjust height based on content
-                />
+                                <MiniCard
+                                    imageSource={require('../../assets/images/sample-event-banner.jpg')}
+                                    title={item.title}
+                                    iconText={item.location}
+                                    buttonText="Register"
+                                    onPress={() => console.log('Register button pressed')}
+                                />
+                            </TouchableOpacity>
+                        )}
+                        horizontal={true} // Set horizontal scroll direction
+                        showsHorizontalScrollIndicator={false} // Hide horizontal scrollbar
+                        contentContainerStyle={{ height: 'auto' }} // Adjust height based on content
+                    />
+                </View>
 
                 {/* Headers */}
                 <Text style={styles.header}>Upcoming Events</Text>
@@ -91,10 +86,17 @@ const HomeScreen = ({ navigation }) => {
                         <TouchableOpacity onPress={() => {
                             console.log(item.title)
                         }}>
-                            <View style={styles.card}>
-                                <Text>{item.title}</Text>
-                            </View>
+                            <DetailedCard
+                                // imageSource="../../assets/images/sample-event-banner.jpg"
+                                department="AI & ML"
+                                title="Hackathon Hackathon Hackathon"
+                                dateTime="19th August, 09:00"
+                                avatarSource="../../assets/images/right_arrow.png"
+                                price="₨ 800"
+                                onPress={() => handleCardPress(item)}
+                            />
                         </TouchableOpacity>
+
                     )}
                     horizontal={true} // Set horizontal scroll direction
                     showsHorizontalScrollIndicator={false} // Hide horizontal scrollbar
@@ -119,7 +121,6 @@ const styles = StyleSheet.create({
     safeArea: {
         paddingTop: 40,
         flex: 1,
-        // backgroundColor: '#fff', // Set the background color to match your design
     },
     container: {
         flex: 1,
@@ -160,21 +161,12 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     header: {
+        marginVertical: 12,
         fontSize: 18,
         fontWeight: 'bold',
-        marginBottom: 10,
+        marginBottom: 23,
     },
-    // card: {
-    //     width: 240,
-    //     flex: 1,
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     borderWidth: 1,
-    //     borderColor: '#808080',
-    //     borderRadius: 10,
-    //     margin: 5,
-    //     padding: 10,
-    // },
+
 });
 
 export default HomeScreen;
