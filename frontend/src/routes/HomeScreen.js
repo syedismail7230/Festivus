@@ -119,7 +119,7 @@ const HomeScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     safeArea: {
-        paddingTop: 40,
+        // paddingTop: 40,
         flex: 1,
     },
     container: {

@@ -10,6 +10,7 @@ const Profile = () => {
       user_name: "Dummy",
       dpt: "AIML",
       lscore: 1000,
+      key: "1"
     },
   ];
 
