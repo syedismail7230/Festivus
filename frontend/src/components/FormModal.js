@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Modal } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Modal, TextInput } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { Picker } from '@react-native-picker/picker';
 
 const FormModal = ({ closeModal }) => {
     const [formData, setFormData] = useState({
         eventName: '',
-        eventDate: '',
+        eventDate: new Date(),
         eventLocation: '',
     });
 
@@ -12,12 +14,23 @@ const FormModal = ({ closeModal }) => {
         setFormData({ ...formData, [field]: value });
     };
 
+    const handleDateChange = (event, selectedDate) => {
+        const currentDate = selectedDate || formData.eventDate;
+        setFormData({ ...formData, eventDate: currentDate });
+    };
+
+    const formatDate = (date) => {
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+    };
+
+
     const handleSubmit = () => {
         // Implement your logic to handle form submission
         // You can send the formData to your backend or perform any other actions
         console.log('Form Data:', formData);
-
-        // Close the modal
         closeModal();
     };
 
@@ -37,20 +50,37 @@ const FormModal = ({ closeModal }) => {
                     value={formData.eventName}
                     onChangeText={(text) => handleInputChange('eventName', text)}
                 />
+                <View style={styles.datePicker}>
+                    <Text>Selected Date: {formatDate(formData.eventDate)}</Text>
+                    <DateTimePicker
+                        value={formData.eventDate}
+                        mode="date"
+                        display="default"
+                        onChange={handleDateChange}
+                        minimumDate={new Date()}
+                    />
+                </View>
 
-                <TextInput
-                    style={styles.input}
-                    placeholder="Event Date"
-                    value={formData.eventDate}
-                    onChangeText={(text) => handleInputChange('eventDate', text)}
-                />
-
-                <TextInput
+                {/* <TextInput
                     style={styles.input}
                     placeholder="Event Location"
                     value={formData.eventLocation}
                     onChangeText={(text) => handleInputChange('eventLocation', text)}
-                />
+                /> */}
+                <View style={styles.input}>
+                    <Text style={styles.label}>Event Location</Text>
+                    <Picker
+                        style={styles.picker}
+                        selectedValue={formData.eventLocation}
+                        onValueChange={(value) => handleInputChange('eventLocation', value)}
+                    >
+                        <Picker.Item label="AIML Seminar Hall" value="AIML Seminar Hall" />
+                        <Picker.Item label="AIML Lab" value="AIML Lab" />
+                        <Picker.Item label="ISE Seminar Hall" value="ISE Seminar Hall" />
+                        <Picker.Item label="CSE Seminar Hall" value="CSE Seminar Hall" />
+                        {/* Add more places as needed */}
+                    </Picker>
+                </View>
 
                 <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
                     <Text style={styles.submitButtonText}>Submit</Text>
@@ -63,6 +93,8 @@ const FormModal = ({ closeModal }) => {
         </Modal>
     );
 };
+
+
 
 const styles = StyleSheet.create({
     modalContainer: {
@@ -85,6 +117,21 @@ const styles = StyleSheet.create({
         marginBottom: 15,
         width: '100%',
     },
+
+    datePicker: {
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: 15,
+        borderWidth: 1,
+        borderColor: 'gray',
+        borderRadius: 8,
+        padding: 10,
+
+    },
+
     submitButton: {
         backgroundColor: 'blue',
         padding: 15,

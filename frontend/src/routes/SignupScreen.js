@@ -57,7 +57,7 @@ const SignupScreen = ({ navigation }) => {
 
             {/* Google Login */}
             <TouchableOpacity style={styles.googleLoginContainer} onPress={() => {
-                // Handle Google login logic
+                console.log("Google Login Initiated")
             }}>
                 <Ionicons name="logo-google" size={24} color="black" />
                 <Text style={styles.googleLoginText}>Login with Google</Text>

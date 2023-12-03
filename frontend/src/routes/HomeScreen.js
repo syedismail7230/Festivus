@@ -69,7 +69,6 @@ const HomeScreen = ({ navigation }) => {
                             //     {/* <View style={styles.card}>
                             //     <Text>{item.title}</Text>
                             // </View> */}
-
                             // </TouchableOpacity>
                         )}
                         horizontal={true} // Set horizontal scroll direction

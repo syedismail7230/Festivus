@@ -9,6 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import PastEvents from './PastEventsEmpty';
 import RegisteredEventsScreen from './RegisteredEventsScreen';
+import PastEventScreen from './PastEventsEmpty';
 
 const Tab = createMaterialTopTabNavigator();
 const Stack = createStackNavigator();
